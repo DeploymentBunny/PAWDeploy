@@ -1,0 +1,47 @@
+﻿<Settings>
+ <CustomerData>
+  <OrgName>ViaMonstra</OrgName>
+  <FullName>ViaMonstra</FullName>
+ </CustomerData>
+ <HyperV>
+  <VMSwitch>UplinkSwitch</VMSwitch>
+ </HyperV>
+ <Templates>
+  <Template Name = 'Windows 10 x64 Paw for Domain sample.local'>
+   <Active>True</Active>
+   <VMGen>2</VMGen>
+   <Memory>4096</Memory>
+   <MemoryLow>2048</MemoryLow>
+   <MemoryHigh>8192</MemoryHigh>
+   <NoCPU>2</NoCPU>
+   <DynamicMem>True</DynamicMem>
+   <DiskMode>Attached</DiskMode>
+   <VHDFile>C:\VMDeployImages\W1020H2VPAW.vhdx</VHDFile>
+   <TimeZoneName>W. Europe Standard Time</TimeZoneName>
+   <DomainOrWorkGroup>Domain</DomainOrWorkGroup>
+   <DNSDomain>sample.local</DNSDomain>
+   <MachineObjectOU>OU=PAW,DC=sample,DC=local</MachineObjectOU>
+   <NameSuffix>SAM</NameSuffix>
+   <VLanID>0</VLanID>
+   <VMSwitch>UplinkSwitch</VMSwitch>
+  </Template>
+  <Template Name = 'Windows 10 x64 Paw for WORKGROUP'>
+   <Active>True</Active>
+   <VMGen>2</VMGen>
+   <Memory>4096</Memory>
+   <MemoryLow>2048</MemoryLow>
+   <MemoryHigh>8192</MemoryHigh>
+   <NoCPU>2</NoCPU>
+   <DynamicMem>True</DynamicMem>
+   <DiskMode>Attached</DiskMode>
+   <VHDFile>C:\VMDeployImages\W1020H2VPAW.vhdx</VHDFile>
+   <TimeZoneName>W. Europe Standard Time</TimeZoneName>
+   <DomainOrWorkGroup>WorkGroup</DomainOrWorkGroup>
+   <DNSDomain>NA</DNSDomain>
+   <MachineObjectOU>NA</MachineObjectOU>
+   <NameSuffix>WG</NameSuffix>
+   <VLanID>0</VLanID>
+   <VMSwitch>UplinkSwitch</VMSwitch>
+  </Template>
+ </Templates>
+</Settings>

@@ -638,7 +638,7 @@ Function New-VIAVM
         [parameter(mandatory=$True)]
         [ValidateNotNullOrEmpty()]
         [String]
-        $VMLocation = "C:\VMs",
+        $VMLocation,
 
         [parameter(mandatory=$false)]
         [ValidateNotNullOrEmpty()]
@@ -871,48 +871,6 @@ Function Test-VIAVMSwitchexistence
         $Item = (Get-VMSwitch | Where-Object -Property Name -EQ -Value $VMSwitchname).count
         If($Item -eq '1'){Return $true}else{Return $false}
 }
-Function Compress-VIAVHD
-{
-    Param(
-    [string]$VHDFile
-    )
-    Mount-VHD -Path $VHDFile -NoDriveLetter -ReadOnly
-    Optimize-VHD -Path $VHDFile -Mode Full
-    Dismount-VHD -Path $VHDFile
-}
-Function Get-VIAUnimportedvmcxFiles
-{
-    <#
-    .Synopsis
-        Script used find not yet imported Hyper-V Configurations
-    .DESCRIPTION
-        Created: 2016-11-07
-        Version: 1.0
-        Author : Mikael Nystrom
-        Twitter: @mikael_nystrom
-        Blog   : http://deploymentbunny.com
-        Disclaimer: This script is provided "AS IS" with no warranties.
-    .EXAMPLE
-        Get-VIAUnimportedvmcxFiles
-    #>    
-    [CmdletBinding(SupportsShouldProcess=$true)]
-    
-    Param(
-    [string]$Folder
-    )
-
-    $VMsIDs = (Get-VM).VMId
-    $VMConfigs = (Get-ChildItem -Path $VMBaseFolder -Filter *.vmcx -Recurse).BaseName
-
-    $obj = Compare-Object -ReferenceObject $VMsIDs -DifferenceObject $VMConfigs
-
-    $Configs = foreach($Item in ($obj.InputObject)){
-        #$Item
-        $Items = Get-ChildItem -Path $VMBaseFolder -Recurse -File -Filter *.vmcx  | Where-Object -Property Basename -Like -Value "*$Item" 
-        $Items | Where-Object -Property FullName -NotLike -Value "*Snapshots*"
-    }
-    Return $Configs.FullName
-}
 Function Get-VIADisconnectedVHDs
 {
     <#
@@ -1031,8 +989,8 @@ Function Wait-VIAVMStart
     #>    
     [CmdletBinding(SupportsShouldProcess=$true)]
     Param(
-    $VMname,
-    $Credentials
+        $VMname,
+        $Credentials
     )
     Start-VM -VMname $VMname
     Wait-VIAVMIsRunning -VMname $VMname

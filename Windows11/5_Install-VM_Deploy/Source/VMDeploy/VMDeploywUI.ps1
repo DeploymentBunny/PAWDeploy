@@ -10,34 +10,14 @@ $DLL = '[DllImport("user32.dll")] public static extern bool ShowWindowAsync(IntP
 Add-Type -MemberDefinition $DLL -name NativeMethods -namespace Win32
 $Process = (Get-Process PowerShell | Where-Object MainWindowTitle -like '*VM Deploy*').MainWindowHandle
 # Minimize window
-[Win32.NativeMethods]::ShowWindowAsync($Process, 2)
+#[Win32.NativeMethods]::ShowWindowAsync($Process, 2)
 
 #Get Env:
 $RootFolder = $MyInvocation.MyCommand.Path | Split-Path -Parent
 
-#Get LData
-$XMLLDatafile = "$RootFolder\lConfig.XML"
-[XML]$XMLLData = Get-Content -Path $XMLLDatafile
-
-switch ($XMLLData.Settings.Source)
-{
-    'local' {
-        #Get Data
-        $XMLDatafile = $XMLLData.Settings.XMLFile
-        [XML]$XMLData = Get-Content -Path "$RootFolder\$XMLDatafile"
-    }
-    'http' {
-        #Get Data
-        $XMLDatafile = $XMLLData.Settings.XMLFile
-        [XML]$XMLData = (New-Object System.Net.WebClient).DownloadString($XMLDatafile)
-    }
-    'unc' {
-        #Get Data
-        $XMLDatafile = $XMLLData.Settings.XMLFile
-        [XML]$XMLData = (New-Object System.Net.WebClient).DownloadString($XMLDatafile)
-    }
-    Default {}
-}
+#Get Data
+$XMLDatafile = "$RootFolder\Config.XML"
+[XML]$XMLData = Get-Content -Path "$XMLDatafile"
 
 #Get Templates
 $Templates = $XMLData.Settings.Templates.Template | Where-Object Active -EQ $True
@@ -56,7 +36,7 @@ $Font = 'Consolas,10'
 
 $Form                            = New-Object system.Windows.Forms.Form
 $Form.ClientSize                 = '800,600'
-$Form.text                       = "VM Deploy 1.0"
+$Form.text                       = "Priviliged Access Workstation deployment tool 1.0"
 $Form.TopMost                    = $false
 
 $PictureBox1                     = New-Object system.Windows.Forms.PictureBox
@@ -292,9 +272,9 @@ Function TemplateListboxChanged
     $SelectedTemplate = $($TemplateListbox.SelectedItem)
     $TemplateData = $XMLData.Settings.Templates.Template | Where-Object Name -EQ $SelectedTemplate
 
-    $result.text = "Selected Template is $SelectedTemplate"
-    $result.text += "`r`n" + "MachineObjectOU is now $($TemplateData.MachineObjectOU)"
-    $result.text += "`r`n" + "NameSuffix is now $($TemplateData.NameSuffix)"
+    #$result.text = "Selected Template is $SelectedTemplate"
+    #$result.text += "`r`n" + "MachineObjectOU is now $($TemplateData.MachineObjectOU)"
+    #$result.text += "`r`n" + "NameSuffix is now $($TemplateData.NameSuffix)"
 
     $VMnameTextBox.Text = $env:COMPUTERNAME + "-" + $TemplateData.NameSuffix + $RandomName
     $VlanTextBox.Text = $TemplateData.vlanid

@@ -1,0 +1,75 @@
+﻿<Settings>
+ <CustomerData>
+  <OrgName>Corp</OrgName>
+  <FullName>Corp</FullName>
+ </CustomerData>
+ <HyperV>
+  <VMSwitch>Default Switch</VMSwitch>
+  <VMLocation>C:\Data\VMs</VMLocation>
+ </HyperV>
+ <Templates>
+  <Template Name = 'Windows 11 T0 PAW for CORP'>
+   <Active>True</Active>
+   <VMGen>2</VMGen>
+   <Memory>3072</Memory>
+   <NoCPU>2</NoCPU>
+   <DynamicMem>False</DynamicMem>
+   <DiskMode>Diff</DiskMode>
+   <VHDFile>C:\Data\IMF\RND002 - VPAW\RND002.vhdx</VHDFile>
+   <ExtraFolder>C:\PAWTools</ExtraFolder>
+   <ExpansionScript>RunMe.ps1</ExpansionScript>
+   <OSClass>Client</OSClass>
+   <SecurityBaselineLocation>C:\VMDeploy\SecurityBaseline_24H2</SecurityBaselineLocation>
+   <ApplySecurityBaseline>True</ApplySecurityBaseline>
+   <TimeZoneName>W. Europe Standard Time</TimeZoneName>
+   <DomainOrWorkGroup>Domain</DomainOrWorkGroup>
+   <DNSDomain>corp.thefakedomain.com</DNSDomain>
+   <MachineObjectOU>OU=PrivilegedAccessWorkstations,OU=Tier0,OU=Admin,DC=corp,DC=thefakedomain,DC=com</MachineObjectOU>
+   <NameSuffix>SAM</NameSuffix>
+   <VLanID>0</VLanID>
+   <VMSwitch>Default Switch</VMSwitch>
+  </Template>
+  <Template Name = 'Windows 11 T1 PAW for CORP'>
+   <Active>True</Active>
+   <VMGen>2</VMGen>
+   <Memory>3072</Memory>
+   <NoCPU>2</NoCPU>
+   <DynamicMem>False</DynamicMem>
+   <DiskMode>Diff</DiskMode>
+   <VHDFile>C:\Data\IMF\RND002 - VPAW\RND002.vhdx</VHDFile>
+   <ExtraFolder>C:\PAWTools</ExtraFolder>
+   <ExpansionScript>RunMe.ps1</ExpansionScript>
+   <OSClass>Client</OSClass>
+   <SecurityBaselineLocation>C:\VMDeploy\SecurityBaseline_24H2</SecurityBaselineLocation>
+   <ApplySecurityBaseline>True</ApplySecurityBaseline>
+   <TimeZoneName>W. Europe Standard Time</TimeZoneName>
+   <DomainOrWorkGroup>Domain</DomainOrWorkGroup>
+   <DNSDomain>corp.thefakedomain.com</DNSDomain>
+   <MachineObjectOU>OU=PrivilegedAccessWorkstations,OU=Tier1,OU=Admin,DC=corp,DC=thefakedomain,DC=com</MachineObjectOU>
+   <NameSuffix>SAM</NameSuffix>
+   <VLanID>0</VLanID>
+   <VMSwitch>Default Switch</VMSwitch>
+  </Template>
+  <Template Name = 'Windows 11 x64 PAW for WORKGROUP'>
+   <Active>True</Active>
+   <VMGen>2</VMGen>
+   <Memory>3072</Memory>
+   <NoCPU>2</NoCPU>
+   <DynamicMem>False</DynamicMem>
+   <DiskMode>Diff</DiskMode>
+   <VHDFile>C:\Data\IMF\RND002 - VPAW\RND002.vhdx</VHDFile>
+   <ExtraFolder>C:\PAWTools</ExtraFolder>
+   <ExpansionScript>RunMe.ps1</ExpansionScript>
+   <OSClass>Client</OSClass>
+   <SecurityBaselineLocation>C:\VMDeploy\SecurityBaseline_24H2</SecurityBaselineLocation>
+   <ApplySecurityBaseline>True</ApplySecurityBaseline>
+   <TimeZoneName>W. Europe Standard Time</TimeZoneName>
+   <DomainOrWorkGroup>WorkGroup</DomainOrWorkGroup>
+   <DNSDomain>NA</DNSDomain>
+   <MachineObjectOU>NA</MachineObjectOU>
+   <NameSuffix>WG</NameSuffix>
+   <VLanID>0</VLanID>
+   <VMSwitch>Default Switch</VMSwitch>
+  </Template>
+ </Templates>
+</Settings>

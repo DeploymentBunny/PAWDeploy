@@ -1,0 +1,22 @@
+{
+  "Name": "Light",
+  "BackgroundImage": "Background",
+  "MenuRibbon": "#FFFFFF",
+  "Background": "#F3F5F7",
+  "Panel": "#E7EBEF",
+  "Field": "#FFFFFF",
+  "Border": "#66717D",
+  "ReadOnly": "#E7EBEF",
+  "Selection": "#B84700",
+  "SelectionText": "#FFFFFF",
+  "Text": "#20262D",
+  "MutedText": "#4C5661",
+  "Heading": "#17212B",
+  "Accent": "#B84700",
+  "AccentText": "#FFFFFF",
+  "ButtonHover": "#B8C5D3",
+  "ButtonBorder": "#000000",
+  "ButtonPressed": "#A5B5C5",
+  "AccentHover": "#853300",
+  "AccentPressed": "#642600"
+}

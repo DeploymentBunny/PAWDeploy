@@ -1,0 +1,41 @@
+{
+  "Solution": {
+    "Name": "PAWDeploy",
+    "Version": "2.0.0.40"
+  },
+  "Settings": {
+    "SolutionVersion": {
+      "Major": 2,
+      "Minor": "0",
+      "Build": 0,
+      "Revision": 40
+    },
+    "CustomerData": {
+      "OrgName": "Corp",
+      "FullName": "Corp"
+    },
+    "HyperV": {
+      "VMFolder": "C:\\VMs",
+      "VMGen": "2",
+      "NoCPU": "2",
+      "Memory": "3072",
+      "DynamicMem": "False",
+      "DiskMode": "Diff"
+    },
+    "OperatingSystemConfiguration": {
+      "DomainOrWorkGroup": "WORKGROUP",
+      "TimeZoneName": "Pacific Standard Time",
+      "InputLocale": "en-US",
+      "SystemLocale": "en-US",
+      "UILanguage": "en-US",
+      "UserLocale": "en-US"
+    },
+    "Configuration": {
+      "InstallFolder": "C:\\PAWDeploy",
+      "VHDFolder": "C:\\PAWDeploy\\VHDFolder",
+      "SecurityBaseLineFolder": "C:\\PAWDeploy\\Resources\\SecurityBaselines",
+      "LogFilesFolder": "%TEMP%\\PAWDeploy",
+      "UITheme": "System"
+    }
+  }
+}

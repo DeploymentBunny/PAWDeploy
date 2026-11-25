@@ -1,0 +1,21 @@
+{
+  "Name": "Dark",
+  "BackgroundImage": "Background",
+  "Background": "#111315",
+  "Panel": "#1B1E22",
+  "Field": "#252A30",
+  "Border": "#59616B",
+  "ReadOnly": "#1B1E22",
+  "Selection": "#FF6B00",
+  "SelectionText": "#111315",
+  "Text": "#F4F5F7",
+  "MutedText": "#B8BEC7",
+  "Heading": "#F4F5F7",
+  "Accent": "#FF6B00",
+  "AccentText": "#111315",
+  "ButtonHover": "#46515E",
+  "ButtonBorder": "#FFFFFF",
+  "ButtonPressed": "#59616B",
+  "AccentHover": "#FF994D",
+  "AccentPressed": "#E65F00"
+}

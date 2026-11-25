@@ -51,7 +51,7 @@ The installer creates the image destination but does not copy an image. Use
 It preserves user-managed configuration and resources on upgrade. Installation
 shortcuts are created under `<InstallPath>\ShortCuts` and in the Start menu;
 they use the PowerShell installation that ran the installer. See the
-[installation guide](Docs/Install-PAWDeploy.md) for prerequisites, upgrades,
+[installation guide](PAWDeploy/Docs/Install-PAWDeploy.md) for prerequisites, upgrades,
 parameters and `-WhatIf`.
 
 Open the installed `PAWMenu.ps1` as administrator. Menu-launched tools and the
@@ -63,22 +63,22 @@ modules loaded.
 
 1. Prepare a supported Windows VHDX. An existing generalized image can be used,
    or a WIM can be converted with the included
-   [command-line converter](Docs/Convert-PAWWIM2VHD.md). Import the VHDX into
-   the configured image folder using the [VHDX importer](Docs/Import-PAWVHDX.md).
+   [command-line converter](PAWDeploy/Docs/Convert-PAWWIM2VHD.md). Import the VHDX into
+   the configured image folder using the [VHDX importer](PAWDeploy/Docs/Import-PAWVHDX.md).
 2. In the menu, open **Configuration** and **Templates**. Configure paths and
    create or activate a template with the image, VM switch, resources, locale
-   and domain or workgroup settings. See [configuration](Docs/Config.json.md),
-   the [editor](Docs/PAWConfigEditorUI.md) and
-   [template settings](Docs/Invoke-PAWTemplateSettings.md).
+   and domain or workgroup settings. See [configuration](PAWDeploy/Docs/Config.json.md),
+   the [editor](PAWDeploy/Docs/PAWConfigEditorUI.md) and
+   [template settings](PAWDeploy/Docs/Invoke-PAWTemplateSettings.md).
 3. If needed, use **Applications/Bundles** to define applications and assign a
    bundle to the template. Prepare approved scripts, security baselines and
    WDAC policies as appropriate. The
-   [Application Manager guide](Docs/ApplicationManager.md) explains application
+   [Application Manager guide](PAWDeploy/Docs/ApplicationManager.md) explains application
    sources, caching, bundles and transfer.
 4. Run `.\Tools\Invoke-PAWConfigValidation.ps1` from the installation root and
    resolve any reported problems. Open **New PAW**, select the active template,
    review its settings and build the VM. See the
-   [deployment UI](Docs/PAWDeployUI.md) and [deployment engine](Docs/New-PAWVM.md)
+   [deployment UI](PAWDeploy/Docs/PAWDeployUI.md) and [deployment engine](PAWDeploy/Docs/New-PAWVM.md)
    guides for options and preflight checks.
 5. Verify Windows setup, networking, domain or workgroup membership, security
    settings, applications and scripts before production use. Repeat the checks
@@ -89,16 +89,16 @@ modules loaded.
 `Config\Config.json` holds environment defaults. Template JSON files are stored
 beside it in `Config`; template enumeration excludes `Config.json`. Use
 **Configuration** and **Templates**, or the
-[configuration CLI](Docs/Invoke-PAWConfigurationSettings.md) and
-[template CLI](Docs/Invoke-PAWTemplateSettings.md). The Templates editor also
+[configuration CLI](PAWDeploy/Docs/Invoke-PAWConfigurationSettings.md) and
+[template CLI](PAWDeploy/Docs/Invoke-PAWTemplateSettings.md). The Templates editor also
 supports import and export.
 
 Host-side content lives under `Resources`, including application catalog and
 bundles, application downloads, custom scripts, security baselines, ASR and
-WDAC policies. See [baseline imports](Docs/Import-PAWSecurityBaseline.md) and
-[sample scripts](Docs/SampleScripts.md). Templates control guest ASR rules;
+WDAC policies. See [baseline imports](PAWDeploy/Docs/Import-PAWSecurityBaseline.md) and
+[sample scripts](PAWDeploy/Docs/SampleScripts.md). Templates control guest ASR rules;
 WDAC XML policies can be selected in New PAW. The
-[security deployment guide](Docs/New-PAWVM.md#asr-and-windows-defender-application-control)
+[security deployment guide](PAWDeploy/Docs/New-PAWVM.md#asr-and-windows-defender-application-control)
 describes overrides and WDAC activation.
 
 ## Tools and documentation
@@ -106,15 +106,15 @@ describes overrides and WDAC activation.
 The menu provides **New PAW**, **Configuration**, **Templates**,
 **Applications/Bundles**, **PowerShell Prompt**, **Logs**, **Help** and
 **Close**. Tools can also be started from the installation's `Tools` folder or
-their installed shortcuts. See the [Community menu guide](Docs/PAWMenuCommunity.md)
-and [command-line walkthrough](Docs/CommandlineSamples.md).
+their installed shortcuts. See the [Community menu guide](PAWDeploy/Docs/PAWMenuCommunity.md)
+and [command-line walkthrough](PAWDeploy/Docs/CommandlineSamples.md).
 
 Use **Logs** to inspect or delete logs in `%TEMP%\PAWDeploy`; the
-[log viewer guide](Docs/PAWLogsUI.md) describes its controls. **Help** opens
-the local documentation reader. The [Docs folder](Docs) contains the detailed
-guides, including [configuration validation](Docs/Invoke-PAWConfigValidation.md),
-[template editing](Docs/PAWTemplateEditorUI.md) and
-[VM removal from PowerShell](Docs/Remove-PAWVM.md).
+[log viewer guide](PAWDeploy/Docs/PAWLogsUI.md) describes its controls. **Help** opens
+the local documentation reader. The [Docs folder](PAWDeploy/Docs) contains the detailed
+guides, including [configuration validation](PAWDeploy/Docs/Invoke-PAWConfigValidation.md),
+[template editing](PAWDeploy/Docs/PAWTemplateEditorUI.md) and
+[VM removal from PowerShell](PAWDeploy/Docs/Remove-PAWVM.md).
 
 The solution version is recorded in `Config\Config.json`; module and script
 versions are maintained separately.

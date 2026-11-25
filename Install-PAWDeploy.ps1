@@ -74,7 +74,7 @@
 .EXAMPLE
     .\Install-PAWDeploy.ps1 -SelfTest
 .NOTES
-    Version : 2.0.0.23
+    Version : 2.0.0.25
     Author  : The Fantastic PAWDeploy Team
 #>
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -1542,7 +1542,7 @@ try {
         }
     }
     else {
-        Write-Host -ForegroundColor Green "VHDFolder already exists: $ImagesPath"
+        Write-Host -ForegroundColor Green "Note: ImageLocation folder already exists: $ImagesPath"
     }
 
     $installFolderExists = Test-Path -Path $InstallPath -PathType Container
@@ -1579,7 +1579,7 @@ try {
     $themeToInstall = Resolve-PAWInstallThemeName -ThemeName $themeToInstall
 
     if ($isUpgrade -and -not $Force) {
-        Write-Warning 'The folder exists.'
+        Write-Host -ForegroundColor Green "Note: Installation folder already exists: $InstallPath"
         $confirmMessage = 'Are you sure you want to upgrade?'
         if (-not $PSCmdlet.ShouldContinue($confirmMessage, 'Upgrade confirmation')) {
             Write-Warning 'Upgrade canceled by user.'
@@ -1749,6 +1749,21 @@ try {
         }
 
         Write-Host -ForegroundColor Green "Finished folder: $($item.Name)"
+    }
+
+    foreach ($guideName in @('README.md', 'GettingStarted.md')) {
+        $sourceGuide = Join-Path $ScriptDir $guideName
+        $installedGuide = Join-Path $InstallPath $guideName
+        if (Test-Path -LiteralPath $sourceGuide -PathType Leaf) {
+            if ($PSCmdlet.ShouldProcess($installedGuide, "Install guide from '$sourceGuide'")) {
+                $content = [IO.File]::ReadAllText($sourceGuide)
+                $content = [regex]::Replace($content, '(?<=\]\()PAWDeploy/', '')
+                [IO.File]::WriteAllText($installedGuide, $content, (New-Object System.Text.UTF8Encoding($false)))
+            }
+        }
+        elseif (-not (Test-Path -LiteralPath (Join-Path $ScriptDir "PAWDeploy\$guideName") -PathType Leaf)) {
+            Write-Warning "Guide not found in the installation source: $sourceGuide"
+        }
     }
 
     Copy-PAWBrandingAssets -SourceRoot $ScriptDir -InstallPath $InstallPath

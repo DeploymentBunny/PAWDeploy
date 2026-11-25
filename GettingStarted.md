@@ -27,25 +27,25 @@ the guest, accounts, reference image and network.
 
 ## 2. Install Community Edition
 
-Extract the Community ZIP. In an elevated PowerShell session, change to the
-extracted folder containing `Install-PAWDeploy.ps1` and run:
+In an elevated PowerShell session, change to the folder containing
+`Install-PAWDeploy.ps1` and run:
 
 ```powershell
 .\Install-PAWDeploy.ps1 -Path 'C:\PAWDeploy'
 ```
 
-The package contains this guide as `PAWDeploy\GettingStarted.md`; installation
-copies it to `C:\PAWDeploy\GettingStarted.md`, alongside `README.md` and `Docs`.
+The installer copies `GettingStarted.md` and `README.md` from beside it to
+`C:\PAWDeploy`, alongside `Docs`.
 The installer creates the image destination but does not copy an image. For
 custom paths, themes, upgrades and other options, see the
-[installation guide](Docs/Install-PAWDeploy.md).
+[installation guide](PAWDeploy/Docs/Install-PAWDeploy.md).
 
 ## 3. Prepare the image and configuration
 
 1. Provide a supported, patched Windows reference disk in VHDX format. You can
    use a generalized image or convert a WIM with the included
-   [command-line converter](Docs/Convert-PAWWIM2VHD.md). The
-   [command-line walkthrough](Docs/CommandlineSamples.md) shows how to select a
+   [command-line converter](PAWDeploy/Docs/Convert-PAWWIM2VHD.md). The
+   [command-line walkthrough](PAWDeploy/Docs/CommandlineSamples.md) shows how to select a
    WIM index and convert it.
 2. From the installation root, import the VHDX into the configured image folder:
 
@@ -55,20 +55,20 @@ custom paths, themes, upgrades and other options, see the
    ```
 
    Alternatively, run `.\Tools\PAWVHDXImportUI.ps1` or use the installed
-   **PAW VHDX Import** shortcut. The [VHDX import guide](Docs/Import-PAWVHDX.md)
+   **PAW VHDX Import** shortcut. The [VHDX import guide](PAWDeploy/Docs/Import-PAWVHDX.md)
    describes replacement and preview options.
 3. Open `C:\PAWDeploy\PAWMenu.ps1` as administrator. Choose **Configuration**
    to configure paths, then **Templates** to create or activate a template.
    Select the VHDX, Hyper-V switch, VM resources, language and domain or
-   workgroup settings. See [configuration](Docs/Config.json.md) and the
-   [template editor](Docs/PAWTemplateEditorUI.md).
+   workgroup settings. See [configuration](PAWDeploy/Docs/Config.json.md) and the
+   [template editor](PAWDeploy/Docs/PAWTemplateEditorUI.md).
 4. If needed, use **Applications/Bundles** to prepare applications and assign a
    bundle. Import approved security baselines, LGPO, scripts or WDAC policies
    with the included command-line tools. See
-   [Application Manager](Docs/ApplicationManager.md),
-   [baseline imports](Docs/Import-PAWSecurityBaseline.md),
-   [sample scripts](Docs/SampleScripts.md), and the
-   [command-line walkthrough](Docs/CommandlineSamples.md).
+   [Application Manager](PAWDeploy/Docs/ApplicationManager.md),
+   [baseline imports](PAWDeploy/Docs/Import-PAWSecurityBaseline.md),
+   [sample scripts](PAWDeploy/Docs/SampleScripts.md), and the
+   [command-line walkthrough](PAWDeploy/Docs/CommandlineSamples.md).
 
 Only include resources appropriate for the intended administrative work.
 
@@ -82,8 +82,8 @@ reported problems:
 ```
 
 In the menu, choose **New PAW**, select the active template, review the settings
-and build the VM. The [deployment UI guide](Docs/PAWDeployUI.md) and
-[deployment engine guide](Docs/New-PAWVM.md) explain the options and checks.
+and build the VM. The [deployment UI guide](PAWDeploy/Docs/PAWDeployUI.md) and
+[deployment engine guide](PAWDeploy/Docs/New-PAWVM.md) explain the options and checks.
 
 Before production use, confirm that Windows setup completes; the name, language,
 network and domain or workgroup are correct; and the intended security settings,
@@ -93,9 +93,9 @@ applications or policies.
 
 ## Where to go next
 
-- [Community menu](Docs/PAWMenuCommunity.md) - available menu actions.
-- [Command-line walkthrough](Docs/CommandlineSamples.md) - image and resource
+- [Community menu](PAWDeploy/Docs/PAWMenuCommunity.md) - available menu actions.
+- [Command-line walkthrough](PAWDeploy/Docs/CommandlineSamples.md) - image and resource
   preparation and deployment from PowerShell.
-- [Configuration reference](Docs/Config.json.md) - settings and template layout.
-- [Logs](Docs/PAWLogsUI.md) - reviewing and troubleshooting logs.
-- [Documentation folder](Docs/) - detailed guides for the included tools.
+- [Configuration reference](PAWDeploy/Docs/Config.json.md) - settings and template layout.
+- [Logs](PAWDeploy/Docs/PAWLogsUI.md) - reviewing and troubleshooting logs.
+- [Documentation folder](PAWDeploy/Docs/) - detailed guides for the included tools.

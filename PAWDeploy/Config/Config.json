@@ -1,14 +1,14 @@
 {
   "Solution": {
     "Name": "PAWDeploy",
-    "Version": "2.0.0.41"
+    "Version": "2.0.0.43"
   },
   "Settings": {
     "SolutionVersion": {
       "Major": 2,
       "Minor": "0",
       "Build": 0,
-      "Revision": 41
+      "Revision": 43
     },
     "CustomerData": {
       "OrgName": "Corp",

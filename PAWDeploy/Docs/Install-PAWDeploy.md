@@ -15,8 +15,9 @@ The PAWDeploy solution consists of scripts, configuration files, templates, and 
 Running this script:
 
 - Copies the `PAWDeploy` folder (scripts, configuration, and baseline folder structure) to the install path.
-- Installs and refreshes `README.md` and `GettingStarted.md` in the install root,
-  alongside the `Docs` folder, on both new installs and upgrades.
+- Installs and refreshes `README.md` and `GettingStarted.md` from beside the
+  installer into the install root, alongside `Docs`, on new installs and upgrades.
+  Their relative links are adjusted for the installed layout.
 - Creates **PAW Enterprise Toolkit** or **PAW Community Toolkit** in the all-users
   Start menu with shortcuts to the menu and every UI in the selected edition.
   `-SkipShortCut` skips this and the installation-folder shortcut creation.

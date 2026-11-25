@@ -74,7 +74,7 @@
 .EXAMPLE
     .\Install-PAWDeploy.ps1 -SelfTest
 .NOTES
-    Version : 2.0.0.21
+    Version : 2.0.0.23
     Author  : The Fantastic PAWDeploy Team
 #>
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -1679,6 +1679,7 @@ try {
         foreach ($file in $allFiles) {
             $relative = $file.FullName.Substring($item.SourcePath.Length).TrimStart('\', '/')
             if ($relative -match '(^|[\\/])\.(git|github)([\\/]|$)') { continue }
+            if ($relative -in @('ReadmeCommunity.md', 'GettingStartedCommunity.md')) { continue }
             if ($file.Name -in @('.gitkeep', '.gitignore', '.gitattributes', '.gitmodules')) {
                 if ($file.Name -eq '.gitkeep' -and -not $placeholderPaths.Contains($relative)) {
                     $placeholderPaths.Add($relative)
